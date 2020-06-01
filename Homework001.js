@@ -45,20 +45,86 @@ let currencyRate = +prompt("Введите кол-во долларов.");
 alert(`К выплате: ${changeCurrency(currencyRate,UsdBlr)} BLR`);
 
 /* Задание 7
-
+Пользователь указывает объем флешки в Гб. Программа должна посчитать сколько файлов размером в 820 Мб
+помещается на флешку.
  */
+let flash=+prompt("Введите размер флеш памяти (Гб)");
+alert(`На данный накопитель поместиться ${getNumberOfFile(flash)} файлов.`);
+
+/* Задание 8
+Пользователь вводит сумму денег в кошельке и цену одной шоколадки. Программа выводит сколько шоколадок может
+купить пользователь и сколько сдачи у него останется.
+ */
+let money=prompt("Введите ваше количество средств (руб.коп)");
+let costOfChocolate=prompt("Введите стоимость шоколада (руб.коп)");
+alert(`Вам можно купить ${getChocolate(money,costOfChocolate)[0]} плиток шоколада и у вас останется ${getChocolate(money,costOfChocolate)[1]} руб`);
+
+/* Задание 9
+Запросите у пользователя трехзначное число и выведите его задом наперед. Для решения задачи вам понадобится
+оператор % (остаток от деления).
+ */
+let number=prompt("Введите число");
+alert(`Обратное значение имеет вид: ${changeOfNumber(number)}`);
+
+/* Задание 10
+Запросите у пользователя целое число и выведите в ответ, четное число или нет. В задании используйте логические
+операторы. В задании не надо использовать if или switch.
+ */
+let  myNumber=+prompt("Введите число для проверки");
+alert(checkNumber(myNumber));
 
 
 
+/****************** ФУНКЦИИ ********************/
 
+/**
+ * Проверка числа на четность
+ * @param num Проверяемое число
+ * @returns {string} Результат оценки
+ */
+function checkNumber(num) {
+    return num%2===0?'Ваше число четное':'Ваше число не четное';
+}
 
+/**
+ * Выводит число в обратном порядке
+ * @param num Числовое значение
+ * @returns {string} Обратный результат
+ */
+function changeOfNumber(num) {
+    let number='';
+    for (let i=num.length-1;i>=0;i--){
+        number+=num[i];
+    }
+    return number;
+}
 
+/**
+ * Выдает количество купленного товара и остаток денежных средств
+ * @param money Вносимые средства
+ * @param costOfChocolate Стоимость товара
+ * @returns {(number)[]|number[]} Первая позиция массива -количество товараж вторая - сдача
+ */
+function getChocolate(money,costOfChocolate) {
+    let moneyInPurse=money*100;
+    let chocolate=costOfChocolate*100;
 
+    if(chocolate>moneyInPurse)return [0,+money];
 
+    let amountOfChocolate=Math.floor(moneyInPurse/chocolate);
+    let dial=moneyInPurse-amountOfChocolate*chocolate;
+    return [amountOfChocolate,dial/100];
+}
 
-
-
-
+/**
+ * Выдает количество файлов,по 820Мб, которые можно разместить на флешке с заданным объемом
+ * @param flashMemory Размер флешпамяти
+ * @returns {number} Количество файлов
+ */
+function getNumberOfFile(flashMemory) {
+    flashMemory*=1024;
+    return Math.floor(flashMemory/820);
+}
 
 /**
  * Конвертер валют USD-BLR
