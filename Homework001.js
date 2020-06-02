@@ -71,7 +71,7 @@ alert(`Обратное значение имеет вид: ${changeOfNumber(num
 операторы. В задании не надо использовать if или switch.
  */
 let  myNumber=+prompt("Введите число для проверки");
-alert(checkNumber(myNumber));
+checkNumber(myNumber);
 
 
 
@@ -83,7 +83,8 @@ alert(checkNumber(myNumber));
  * @returns {string} Результат оценки
  */
 function checkNumber(num) {
-    return num%2===0?'Ваше число четное':'Ваше число не четное';
+    num%2===0 && alert('Ваше число четное');
+    num%2!==0 && alert('Ваше число не четное');
 }
 
 /**
