@@ -72,6 +72,124 @@ if (checkCircleInSquare(lengthCircle, perimetrSquare)) {
     alert("Круг можно поместить в квадрате");
 } else alert("Круг не поместится в квадрате");
 
+/*
+    Задание 9.
+    Задать пользователю 3 вопроса, в каждом вопросе по 3 варианта ответа.
+    За каждый правильный ответ начисляется 2 балла. После вопросов
+    выведите пользователю количество набранных баллов.
+ */
+let question=[
+    ['Кто под проливным дождем не намочит волосы?','1 - Негр', '2 - Гусь', '3 - Лысый', '4 - Черный кот', 3],
+    ['Как называется боязнь прихода Санта-Клауса?','1 - Ньюрофобия','2 - Клаустрофобия','3 - Нейрофобия','4 - Морозофобия','5 - Прогнофобия',2],
+    ['Как поймать тигра в клетку?','1 - все тигры в полоску.','2 - Зонтиком','3 - Гарпуном','4 - Улыбкой','5 - Харизмой',1]
+]
+let points=0;
+for (let i=0;i<question.length;i++){
+    points+=gameQuestion(question,i);
+}
+alert(`Вы заработали ${points} баллов. Спасибо за игру`);
+
+/*
+    Задание 10.
+    Запросить дату (день, месяц, год) и вывести следующую за ней дату.
+    Учтите возможность перехода на следующий месяц, год, а также високосный год.
+ */
+let myDate=prompt("Введите дату в формате (dd.mm.yyyy)");
+alert(getNextDate(myDate));
+
+/**
+ * Добавляет 0 перед числом, если оно не имеет фората "dd"
+ * @param number Проверяемое число
+ * @returns {string} Результат
+ */
+function addSymbol(number) {
+    let str=number+"";
+    return str.length===1?"0"+str:str;
+}
+
+/**
+ * Увеличивает значение даты на 1 день
+ * @param inputDate Текущая дата
+ * @returns {string} Результат увеличения
+ */
+function getNextDate(inputDate) {
+    let day=+inputDate.split('.')[0];
+    let month=+inputDate.split('.')[1];
+    let year=+inputDate.split('.')[2];
+    switch (month) {
+        case 1:
+        case 3:
+        case 5:
+        case 7:
+        case 8:
+        case 10:
+        case 12:
+            if (day===31) {
+                day=1;
+                if (month===12){
+                    month=1;
+                    year++;
+                }
+                else month++;
+            }
+            else day++;
+            break;
+        case 4:
+        case 6:
+        case 9:
+        case 11:
+            if (day===30) {
+                day=1;
+                if (month===12){
+                    month=1;
+                    year++;
+                }
+                else month++;
+            }
+            else day++;
+            break;
+        case 2:
+            if (day===28 && !checkYear(year)) {
+                day=1;
+                if (month===12){
+                    month=1;
+                    year++;
+                }
+                else month++;
+            }
+            else if (day===29 && checkYear(year)) {
+                day=1;
+                if (month===12){
+                    month=1;
+                    year++;
+                }
+                else month++;
+            }
+            else day++;
+            break;
+    }
+    return `${addSymbol(day)}.${addSymbol(month)}.${year}`;
+}
+
+/**
+ * Вывоодит вопрос на экран и по результатам ответа возвращает количество баллов
+ * @param mass Массив вопросов
+ * @param numQuestion Номер вопроса для вывода
+ * @returns {number} Количество начисленных баллов
+ */
+function gameQuestion(mass,numQuestion) {
+    if (numQuestion>=mass.length) {
+        alert('Ошибка номера вопроса');
+        return 0;
+    }
+    let textMessage='';
+    for (let i=0;i<mass[numQuestion].length-1;i++){
+        textMessage+=mass[numQuestion][i]+"\n";
+    }
+    let answer=+prompt(textMessage);
+    if (answer===mass[numQuestion][mass[numQuestion].length-1])return 2;
+    else return 0;
+}
 
 /**
  * Проверяет можно ли вписать круг в квадрат
