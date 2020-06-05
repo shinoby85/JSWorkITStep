@@ -97,15 +97,11 @@ alert(`Вы заработали ${points} баллов. Спасибо за и�
 let myDate=prompt("Введите дату в формате (dd.mm.yyyy)");
 alert(getNextDate(myDate));
 
-/**
- * Добавляет 0 перед числом, если оно не имеет фората "dd"
- * @param number Проверяемое число
- * @returns {string} Результат
- */
-function addSymbol(number) {
-    let str=number+"";
-    return str.length===1?"0"+str:str;
-}
+
+
+
+
+/********** Функции *********/
 
 /**
  * Увеличивает значение даты на 1 день
@@ -169,6 +165,16 @@ function getNextDate(inputDate) {
             break;
     }
     return `${addSymbol(day)}.${addSymbol(month)}.${year}`;
+}
+
+/**
+ * Добавляет 0 перед числом, если оно не имеет формата "dd"
+ * @param number Проверяемое число
+ * @returns {string} Результат
+ */
+function addSymbol(number) {
+    let str=number+"";
+    return str.length===1?"0"+str:str;
 }
 
 /**
