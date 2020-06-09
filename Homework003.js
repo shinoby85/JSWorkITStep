@@ -119,3 +119,19 @@ function calc(num1,num2,signNum) {
     }
     return 0;
 }
+
+/*
+    Задание 7.
+    Запросить у пользователя число и на сколько цифр его сдвинуть. Сдвинуть цифры числа и вывести
+    результат (если число 123456 сдвинуть на 2 цифры, то получится 345612).
+ */
+let num1 = prompt("Введите число.");
+let shiftNumber=+prompt("Укажите на сколько цифр сдинуть число");
+let widthNumber=String(num1).length;
+for (let i=1;i<=shiftNumber;i++){
+    num1=Number(num1);
+    let safeNum=num1%(10**(widthNumber-1));
+    num1=(num1-safeNum)/(10**(widthNumber-1));
+    num1=safeNum+''+num1;
+}
+console.log(`Результат операции: ${num1}`);
