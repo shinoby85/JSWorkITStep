@@ -84,6 +84,8 @@ do {
     }
     loopIndex++;
 }while (loopIndex<=10);
+console.log(`Положительных чисел: ${positiveNumber}; отрицательных: ${negativeNumber}; 
+        равных нулю: ${numberWhithNull}; четных: ${everNumber}; не четных: ${oddNumber}.`);
 
 /*
     Задание 6.
@@ -135,3 +137,27 @@ for (let i=1;i<=shiftNumber;i++){
     num1=safeNum+''+num1;
 }
 console.log(`Результат операции: ${num1}`);
+
+/*
+    Задание 8.
+    Зациклить вывод дней недели таким образом: «День недели. Хотите увидеть следующий день?»
+    и так до тех пор, пока пользователь нажимает OK.
+ */
+let myDayNow=new Date();
+let weekday=new Array(7);
+weekday=["Воскресенье","Понедельник","Вторник","Среда","Четверг","Пятница","Суббота"];
+let ind=0;
+do{
+    if(!confirm(`Текущий день: ${weekday[myDayNow.getDay()+ind]}. Хотите увидеть следующий день?`))break;
+    ind++;
+    if ((myDayNow.getDay()+ind)>=7){
+        ind=5-(myDayNow.getDay()+ind);
+    }
+}while(true);
+
+
+
+/*
+    Задание 9.
+    Вывести таблицу умножения для всех чисел от 2 до 9. Каждое число необходимо умножить на числа от 1 до 10.
+ */
