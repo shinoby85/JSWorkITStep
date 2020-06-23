@@ -10,16 +10,14 @@ let mas1 = [3, 65, 78, 10, -12, 25, 74, 25];
 let mas2 = [1, 5, 3, 10, 24];
 
 function getFullNewArray(mas1, mas2) {
-    let povtor = [];
     let result = mas1.filter(item => {
         if (mas2.includes(item)) {
-            povtor.push(item);
             return false;
         }
         return true;
     });
     for(let item of mas2){
-        if(result.includes(item)){
+        if(!result.includes(item)){
             result.push(item);
 
         }
