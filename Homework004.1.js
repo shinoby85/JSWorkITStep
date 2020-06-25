@@ -92,7 +92,7 @@ let changeStatus=function(products){
         }
     })
 }
-
+console.log('Задание 1 (результаты):');
 getAllProducts(productsList);
 console.log('************************************');
 addProduct(productsList);
