@@ -1,65 +1,80 @@
-'use strict'
-// Вывести на экран:
-// AAABBBAAABBBAAABBB
-// BBBAAABBBAAABBBAAA
-// AAABBBAAABBBAAABBB
-// (таких строк n, в каждой строке m троек AAA)
+'use strict';
 
-let num1 = +prompt('Введите количество строк:', '');
-let num2 = +prompt('Введите количество повторов:', '');
 
-let result = getResult(num1, num2);
-alert(result);
-
-/**
- * Получаем решение задачи
- * @param {*} n Количество строк
- * @param {*} m Количество однотипных символов
+/*
+Создать еще один массив из 5 случайных чисел и написать следующие функции.
+1. Функция принимает 2 массива и возвращает новый массив, в котором собраны
+все элементы из двух массивов без повторений.
  */
-function getResult(n, m) {
-    let result = '';
-    for (let i = 1; i <= n; i++) {
-        if (i % 2 !== 0) {
-            result += stringLetter(m, 'A') + '\n';
-        } else {
-            result += stringLetter(m, 'B') + '\n';
+let mas1 = [3, 65, 78, 10, -12, 25, 74, 25];
+let mas2 = [1, 5, 3, 10, 24];
+
+function getFullNewArray(mas1, mas2) {
+    let result = mas1.filter(item => {
+        if (mas2.includes(item)) {
+            return false;
         }
+        return true;
+    });
+    for(let item of mas2){
+        if(!result.includes(item)){
+            result.push(item);
 
-    }
-    return result;
-}
-
-/**
- * Формирует готовую строку для вывода
- * @param {*} m Количество однотипных символов
- * @param {*} repeat Вид первого символа (A или B)
- */
-function stringLetter(m, repeat) {
-
-    let result = '';
-    for (let i = 1; i <= 4; i++) {
-        if (repeat == 'A') {
-            result += getColLetter('A', m) + getColLetter('B', m);
-        } else {
-            result += getColLetter('B', m) + getColLetter('A', m);
         }
-
-
     }
-    return result;
+    return result.concat(povtor);
 }
 
+console.log(getFullNewArray(mas1, mas2));
 
-/**
- * Увеличивает количество символов в строке на значение col
- * @param {*} symbol Передаваемый символ
- * @param {*} col Сколько раз должен символ в строке присутствовать
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+Функция принимает 2 массива и возвращает новый массив, в котором собраны общие элементы
+(то есть элементы, которые встречаются и в первом и во втором массивах) без повторений.
  */
-function getColLetter(symbol, col) {
-    let result = '';
-    for (let i = 1; i <= col; i++) {
-        result += symbol;
-    }
+function getRepeatItemArray(mas1, mas2) {
+    let result = mas1.filter(item => {
+        if (mas2.includes(item)) {
+            return true;
+        }
+        return false;
+    });
     return result;
 }
+console.log(getRepeatItemArray(mas1, mas2));
 
+/*
+Функция принимает 2 массива и возвращает новый массив, в котором собраны все
+элементы из первого массива, которых нет во втором массиве. Задание
+ */
+function getFirstArray(mas1, mas2) {
+    let result = mas1.filter(item => {
+        if (mas2.includes(item)) {
+            return false;
+        }
+        return true;
+    });
+    return result;
+}
+console.log(getFirstArray(mas1, mas2));
+
+/*
+Создать массив фруктов и отсортировать его по алфавиту. Написать следующие функции.
+1. Вывод на экран с помощью document.write() в виде списка (с помощью тегов ul и li).
+ */
+let fruits=['Яблоки','Ананасы','Груши','Кокосы', 'Мандарины','Персики'];
+fruits.toLowerCase();
