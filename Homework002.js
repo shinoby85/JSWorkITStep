@@ -41,6 +41,22 @@ let polNumber = prompt("Введите значение возможного п�
 if (checkPolindrom(polNumber)) alert("Число - палиндром");
 else alert("Число не является палиндромом");
 
+/**
+ * Проверка числа на палиндром
+ * @param number Проверяемое число
+ * @returns {boolean} Результат проверки (true - число является палиндромом)
+ */
+function checkPolindrom(number) {
+    let sameNumber = 0;
+    let numStep = Math.floor(number.length / 2);
+    if (numStep === 0) return false;
+    for (let i = 1; i <= numStep; i++) {
+        if (number[i - 1] === number[number.length - i]) sameNumber++;
+    }
+    if (sameNumber === numStep) return true;
+    else return false;
+}
+
 /*
     Задание 6.
     Написать конвертор валют. Пользователь вводит количество USD, выбирает,
@@ -173,8 +189,7 @@ function getNextDate(inputDate) {
  * @returns {string} Результат
  */
 function addSymbol(number) {
-    let str=number+"";
-    return str.length===1?"0"+str:str;
+    return String(number).length===1?"0"+number:String(number);
 }
 
 /**
@@ -261,21 +276,7 @@ function changeCurrency(coins, currency) {
     }
 }
 
-/**
- * Проверка числа на палиндром
- * @param number Проверяемое число
- * @returns {boolean} Результат проверки (true - число является палиндромом)
- */
-function checkPolindrom(number) {
-    let sameNumber = 0;
-    let numStep = Math.floor(number.length / 2);
-    if (numStep === 0) return false;
-    for (let i = 1; i <= numStep; i++) {
-        if (number[i - 1] === number[number.length - i]) sameNumber++;
-    }
-    if (sameNumber === numStep) return true;
-    else return false;
-}
+
 
 /**
  * Выводит решение того, высокосный ли год
