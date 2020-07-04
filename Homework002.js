@@ -189,8 +189,7 @@ function getNextDate(inputDate) {
  * @returns {string} Результат
  */
 function addSymbol(number) {
-    let str=number+"";
-    return str.length===1?"0"+str:str;
+    return String(number).length===1?"0"+number:String(number);
 }
 
 /**
