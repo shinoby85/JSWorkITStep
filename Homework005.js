@@ -245,8 +245,15 @@ console.log(createMas(strWithSeparat,sep));
 % индекс необходимо вывести значение соответствующего входного параметра.
 Например: print(“Today is %1 %2.%3.%4”, “Monday”, 10, 8, 2020) должна вывести “Today is Monday 10.8.2020”.
  */
+function print(str,...other){
+    other.forEach((item,index)=>{
+        let ind=str.indexOf(`%${index+1}`);
+        str=str.slice(0,ind)+item+str.slice(ind+2);
+    });
+    console.log(str);
+}
 
-
+print('Today is %1 %2.%3.%4', 'Monday', 10, 8, 2020);
 
 
 
