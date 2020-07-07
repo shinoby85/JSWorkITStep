@@ -16,7 +16,8 @@ class Bands {
         this.masBands.push({
             title:option.title,
             date:option.date,
-            text:option.text
+            text:option.text,
+            tags:option.tags
         });
     }
     get countBands(){
