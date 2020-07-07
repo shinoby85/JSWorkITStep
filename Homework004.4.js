@@ -52,10 +52,20 @@ let academy = [
         faculty: 'front-end'
     }
 ];
+let group = {
+    nameGroup: 'FE2019',
+    quantity: 13,
+    faculty: 'front-end'
+};
 
+/**
+ * Вывод информации о группах
+ * @param academy Данные об академии
+ * @param faculty Информация о факультете (факультет не указывается при необходимости всех групп)
+ */
 function getAuditory(academy, faculty = '') {
     let string = '';
-    let num=1;
+    let num = 1;
     academy.forEach(item => {
         if (item.faculty === faculty && faculty !== '') {
             string += `${num}. ${item.name}\n`;
@@ -66,26 +76,50 @@ function getAuditory(academy, faculty = '') {
         }
 
     });
-    console.log(string);
+    if (academy === undefined || academy.length === 0) {
+        console.log('По данному запросу аудитории отсутствуют...');
+    } else
+        console.log(string);
 }
 
-function findAuditory(academy,group){
-    let string = '';
-    let num=1;
-    academy.forEach(item => {
-        if (item.faculty === group.faculty && item.) {
-            string += `${num}. ${item.name}\n`;
-            num++;
-        } else if (faculty === '') {
-            string += `${num}. ${item.name}\n`;
-            num++;
+/**
+ * Формирует массив с информацией о подходящих под группу аудиториях
+ * @param academy Информация об академии
+ * @param group Информация о группе
+ * @returns {*} Массив с информацией об аудиториях
+ */
+function findAuditory(academy, group) {
+    let auditoryList = academy.filter(item => {
+        if (item.quantity >= group.quantity && item.faculty === group.faculty) {
+            return true;
         }
-
+        return false;
     });
-    console.log(string);
+    return auditoryList;
+}
+
+/**
+ * Сортировка по количеству мест в аудитории
+ * @param academy Результат сортировки
+ */
+function sortByQuantity(academy) {
+    academy.sort((a,b)=>a.quantity<b.quantity?-1:1);
+}
+
+function sortByFaculty(academy) {
+    academy.sort((a,b)=>a.faculty<b.faculty?-1:1);
 }
 
 getAuditory(academy);
 console.log('**********************');
 getAuditory(academy, 'java');
 console.log('**********************');
+console.log('Информация об аудитории для переданной группы');
+getAuditory(findAuditory(academy,group));
+console.log('********** СОРТИРОВКА ПО КОЛИЧЕСТВУ МЕСТ ************');
+sortByQuantity(academy);
+getAuditory(academy);
+console.log('********** СОРТИРОВКА ПО НАЗВАНИЮ ФАКУЛЬТЕТОВ ************');
+sortByFaculty(academy);
+getAuditory(academy);
+
