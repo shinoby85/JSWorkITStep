@@ -74,8 +74,20 @@ class ExtendedDate extends Date{
         }
         return true;
     }
+    checkYear(year) {
+        if (year % 400 === 0) {
+            return true;
+        } else if ((year % 4 === 0) && (year % 100 !== 0)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     getTypeOfYear(){
-
+        if (this.checkYear(this.getFullYear())){
+            console.log('Год высокосный')
+        }
+        console.log('Год не высокосный');
     }
     getNextDate(){
 
@@ -84,3 +96,4 @@ class ExtendedDate extends Date{
 let myDate=new ExtendedDate('2020-07-16');
 console.log(myDate.getStringDate());
 console.log(myDate.checkDate());
+myDate.getTypeOfYear();
