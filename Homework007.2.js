@@ -69,31 +69,89 @@ class ExtendedDate extends Date{
     }
     checkDate(){
         let dateNow=new Date();
-        if (dateNow.getDate()>this.getDate()) {
-            return false;
-        }
-        return true;
+        return dateNow.getDate() <= this.getDate();
+
     }
     checkYear(year) {
         if (year % 400 === 0) {
             return true;
-        } else if ((year % 4 === 0) && (year % 100 !== 0)) {
-            return true;
-        } else {
-            return false;
-        }
+        } else return (year % 4 === 0) && (year % 100 !== 0);
     }
     getTypeOfYear(){
         if (this.checkYear(this.getFullYear())){
             console.log('Год высокосный')
         }
-        console.log('Год не высокосный');
+        else {
+            console.log('Год не высокосный');
+        }
     }
-    getNextDate(){
 
+    getNextDate() {
+        let day=+this.getDate();
+        let month=+this.getMonth()+1;
+        let year=+this.getFullYear();
+        switch (month) {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                if (day===31) {
+                    day=1;
+                    if (month===12){
+                        month=1;
+                        year++;
+                    }
+                    else month++;
+                }
+                else day++;
+                break;
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                if (day===30) {
+                    day=1;
+                    if (month===12){
+                        month=1;
+                        year++;
+                    }
+                    else month++;
+                }
+                else day++;
+                break;
+            case 2:
+                if (day===28 && !checkYear(year)) {
+                    day=1;
+                    if (month===12){
+                        month=1;
+                        year++;
+                    }
+                    else month++;
+                }
+                else if (day===29 && checkYear(year)) {
+                    day=1;
+                    if (month===12){
+                        month=1;
+                        year++;
+                    }
+                    else month++;
+                }
+                else day++;
+                break;
+        }
+        return `${this.addSymbol(day)}.${this.addSymbol(month)}.${year}`;
+    }
+
+    addSymbol(number) {
+        let str=number+"";
+        return str.length===1?"0"+str:str;
     }
 }
 let myDate=new ExtendedDate('2020-07-16');
 console.log(myDate.getStringDate());
 console.log(myDate.checkDate());
 myDate.getTypeOfYear();
+console.log(myDate.getNextDate());
