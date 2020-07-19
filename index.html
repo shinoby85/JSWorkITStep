@@ -3,9 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+    <link rel="stylesheet" href="style008.css">
 </head>
 <body>
-<!--<script src="Homework001.js"></script>-->
-<!--<script src="Homework002.js"></script>-->
+<div id="darkWin" class="darkWin"></div>
+<div class="container">
+    <h2>Задание-1</h2>
+    <div class="content-1">
+        <form action="" novalidate>
+            <label class="z1Title">Enterdcsc your name (name can't contain digit):</label>
+            <input class="tb-name" type="text" name="name" id="ibName" required pattern="/[a-z]{0,}/gi">
+        </form>
+    </div>
+    <h2>Задание-2</h2>
+    <div class="content-2">
+        <a id="modal" class="modal" href="#">Open modal</a>
+
+        <div id="modalBlock" class="modalBlock animate__animated">
+            <span class="modalText" id="modalText">Hello from Modal Window!</span>
+            <a href="#" class="modalClose" id="modalClose">Close</a>
+        </div>
+    </div>
+    <div class="content-3"></div>
+    <div class="content-4"></div>
+    <div class="content-5"></div>
+    <div class="content-6"></div>
+</div>
+
+
+<script src="Homework008.1.js"></script>
 </body>
 </html>
