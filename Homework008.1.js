@@ -29,3 +29,34 @@ modalClose.onclick=function () {
                 modalBlock.classList.remove('modalShow');
         },2000);
 }
+/*
+        Задание 3.
+ */
+let wSize=field.clientWidth;
+let hSize=field.clientHeight;
+field.onclick=function (e) {
+        if(e.target.closest('div')){
+                let target = e.target.closest('div');
+                let targetCoords = target.getBoundingClientRect();
+                let xCoord = e.clientX - targetCoords.left;
+                let yCoord = e.clientY - targetCoords.top;
+                if (xCoord>=wSize-ball.clientWidth){
+                        ball.style.left=`${wSize-ball.clientWidth}px`;
+                }
+                else if (xCoord<=ball.clientWidth){
+                        ball.style.left=`0px`;
+                }
+                else{
+                        ball.style.left=`${xCoord-ball.clientWidth/2}px`
+                }
+                if (yCoord>=hSize-ball.clientWidth){
+                        ball.style.top=`${hSize-ball.clientWidth}px`;
+                }
+                else if (yCoord<=ball.clientWidth){
+                        ball.style.top=`0px`;
+                }
+                else{
+                        ball.style.top=`${yCoord-ball.clientWidth/2}px`
+                }
+        }
+}
