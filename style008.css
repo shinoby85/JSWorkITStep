@@ -123,3 +123,70 @@ h2{
     transition: top .5s, left .5s;
 
 }
+.content-4{
+    width: 450px;
+    height: 100px;
+    background-color: lightgoldenrodyellow;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.trafficLights{
+    border: 1px solid #000;
+    border-radius: 5px;
+    width: 300px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    float: left;
+    margin-left: 10px;
+}
+.light{
+    width: 60px;
+    height: 60px;
+    border: 1px solid #000;
+    border-radius: 50%;
+}
+.btnNext{
+    height: 80px;
+    width: 60px;
+    background-color: darkgray;
+    box-shadow: 1px 2px 3px black;
+    float: right;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+}
+.btnNext:hover{
+    cursor: pointer;
+    background-color: dimgray;
+}
+.btnNext:active{
+    box-shadow: none;
+    line-height: 81px;
+}
+.lightGreen{
+    background-color: green;
+}
+.lightYellow{
+    background-color: yellow;
+}
+.lightRed{
+    background-color: red;
+}
+.lightGrey{
+    background-color: grey;
+}
+.content-5{
+    background-color: lightpink;
+    width: 600px;
+    padding:20px 40px;
+}
+.item{
+    cursor: pointer;
+}
+.checkItem{
+    background-color: coral;
+}

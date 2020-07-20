@@ -54,3 +54,26 @@ field.onclick = function (e) {
     }
 
 }
+/*
+    Задание 4.
+ */
+let reverse=false;
+let lightIndex=1;
+btnNext.onclick=function () {
+    document.getElementById(`light-${lightIndex}`).classList.add('lightGrey');
+    !reverse?lightIndex++:lightIndex--;
+    document.getElementById(`light-${lightIndex}`).classList.remove('lightGrey');
+    if (lightIndex===1)reverse=false;
+    else if(lightIndex===3)reverse=true;
+}
+/*
+    Задание 5.
+ */
+let item=document.querySelectorAll('.item');
+item.forEach(item=>{
+    item.addEventListener('click',function (e) {
+        document.getElementsByClassName('checkItem')[0].classList.remove('checkItem');
+        let elem=e.target.id.split('-')[1];
+        document.getElementById(`item-${elem}`).classList.add('checkItem');
+    })
+});
