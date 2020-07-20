@@ -77,3 +77,7 @@ item.forEach(item=>{
         document.getElementById(`item-${elem}`).classList.add('checkItem');
     })
 });
+/*
+    Задание 6.
+ */
+let offSet=testBtn.getBoundingClientRect().top;
