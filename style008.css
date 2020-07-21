@@ -215,32 +215,21 @@ h2{
     background-color: saddlebrown;
 }
 .context{
-    display: inline-flex;
+    display: none;
     align-items: center;
     justify-content: center;
-    position: absolute;
-    top: -55px;
     width: 90px;
     height: 40px;
     background-color: rebeccapurple;
     color: #fff;
     font-weight: 500;
 }
-.triangleTop:before{
-    content: "";
-    display: inline-block;
+.triangleTop{
+    display: inline-flex;
     position: absolute;
-    top: -10px;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 0 10px 10px 10px;
-    border-color: transparent transparent rebeccapurple transparent;
+    top: -55px;
 }
-.triangleBottom:after {
+.triangleTop:before{
     content: "";
     display: inline-block;
     position: absolute;
@@ -253,4 +242,24 @@ h2{
     border-style: solid;
     border-width: 10px 10px 0 10px;
     border-color: rebeccapurple transparent transparent transparent;
+}
+.triangleBottom{
+    display: inline-flex;
+    position: absolute;
+    bottom: -55px;
+}
+.triangleBottom:after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: -10px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 0;
+    height: 0;
+    border-style: solid;
+
+    border-width: 0 10px 10px 10px;
+    border-color: transparent transparent rebeccapurple transparent;
 }

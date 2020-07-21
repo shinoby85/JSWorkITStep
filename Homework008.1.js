@@ -81,3 +81,16 @@ item.forEach(item=>{
     Задание 6.
  */
 let offSet=testBtn.getBoundingClientRect().top;
+testBtn.onmouseover=function () {
+    let offSet=testBtn.getBoundingClientRect().top;
+    if (offSet<=60){
+        context.classList.add('triangleBottom');
+    }
+    else{
+        context.classList.add('triangleTop');
+    }
+}
+testBtn.onmouseout=function () {
+    context.classList.remove('triangleBottom');
+    context.classList.remove('triangleTop');
+}
