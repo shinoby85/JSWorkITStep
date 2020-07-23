@@ -61,3 +61,15 @@ btnLeft.onclick=function () {
 btnRight.onclick=function () {
     moveSlide(imgMas,true);
 }
+/*
+    Задание 3
+ */
+let detIndex;
+let openBlock=function(e){
+    if (detIndex!==undefined && detIndex!==e.target.parentNode){
+        detIndex.open=false;
+    }
+    detIndex=e.target.parentNode;
+}
+let allDetails=document.querySelectorAll('.dtText');
+allDetails.forEach(item=>item.addEventListener('click',openBlock));

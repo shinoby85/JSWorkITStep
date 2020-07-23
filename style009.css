@@ -69,3 +69,29 @@
     width: 400px;
     height: 300px;
 }
+.content-3{
+    padding: 10px;
+    background-color: lightpink;
+    width: 800px;
+    min-height: 20px;
+}
+.block-details{
+    width: 100%;
+    min-height: 0;
+    border: 1px solid #000;
+
+}
+.clsSummery::-webkit-details-marker {
+    display: none
+}
+.clsSummery{
+    border: 1px solid #000;
+    color: #fff;
+    background-color: cornflowerblue;
+    font-weight: 600;
+    padding: 5px;
+}
+.text{
+    background-color: lightblue;
+    padding: 5px;
+}
