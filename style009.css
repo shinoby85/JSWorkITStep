@@ -1,0 +1,71 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    margin: 20px;
+}
+.content{
+    margin-bottom: 20px;
+}
+.content-1{
+    width: 400px;
+    height: 7px;
+    border: 17px solid lightpink;
+    background-color: grey;
+    position: relative;
+    z-index: 0;
+    display: flex;
+    align-items: center;
+}
+
+.trackPoint{
+    height: 15px;
+    width: 15px;
+    background-color: blue;
+    position: relative;
+    z-index: 5;
+}
+.trackPoint:hover{
+    cursor: pointer;
+}
+.aria{
+    margin: 10px;
+    border: 1px solid #000;
+    width: 400px;
+    height: 300px;
+    position: relative;
+
+}
+.btn{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 50px;
+    opacity: 0;
+    transition: opacity .3s;
+    background-color: grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 900;
+    z-index: 20;
+}
+.btn:hover{
+    opacity: 1;
+    cursor: pointer;
+}
+.btn-left{
+    left: 0;
+}
+.btn-right{
+    right: 0;
+}
+.img{
+    position: relative;
+    z-index: -5;
+    display: block;
+    width: 400px;
+    height: 300px;
+}
