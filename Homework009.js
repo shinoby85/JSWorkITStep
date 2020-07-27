@@ -80,9 +80,9 @@ allNews.onscroll=function () {
     let allNews=document.getElementById('allNews');
     let lastChild=allNews.children[allNews.children.length-1];
     let coordBlockSize=allNews.getBoundingClientRect().height;
-    let coordChildBottom=lastChild.offsetTop+lastChild.getBoundingClientRect().height;
-
-    if (coordChildBottom<coordBlockSize+10){
+    let coordChildBottom=lastChild.getBoundingClientRect().y;
+    let test=lastChild.getBoundingClientRect().bottom-allNews.getBoundingClientRect().bottom;
+    if (test<0){
         let contentNews=document.querySelectorAll('.content-news');
         for (let num=contentNews.length,ind=0;num<masNews.length, ind<2;num++,ind++) {
             inputNews(masNews[num], num + 1)
