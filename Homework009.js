@@ -79,8 +79,8 @@ allDetails.forEach(item=>item.addEventListener('click',openBlock));
 allNews.onscroll=function () {
     let allNews=document.getElementById('allNews');
     let lastChild=allNews.children[allNews.children.length-1];
-    let coordBlockSize=allNews.getBoundingClientRect().height;
-    let coordChildBottom=lastChild.getBoundingClientRect().y;
+    // let coordBlockSize=allNews.getBoundingClientRect().height;
+    // let coordChildBottom=lastChild.getBoundingClientRect().y;
     let test=lastChild.getBoundingClientRect().bottom-allNews.getBoundingClientRect().bottom;
     if (test<0){
         let contentNews=document.querySelectorAll('.content-news');
