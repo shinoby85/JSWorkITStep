@@ -73,3 +73,37 @@ let openBlock=function(e){
 }
 let allDetails=document.querySelectorAll('.dtText');
 allDetails.forEach(item=>item.addEventListener('click',openBlock));
+/*
+    Задание 4.
+ */
+allNews.onscroll=function () {
+    let allNews=document.getElementById('allNews');
+    let lastChild=allNews.children[allNews.children.length-1];
+    let coordBlockSize=allNews.getBoundingClientRect().height;
+    let coordChildBottom=lastChild.offsetTop+lastChild.getBoundingClientRect().height;
+
+    if (coordChildBottom<coordBlockSize+10){
+        let contentNews=document.querySelectorAll('.content-news');
+        for (let num=contentNews.length,ind=0;num<masNews.length, ind<2;num++,ind++) {
+            inputNews(masNews[num], num + 1)
+        }
+    }
+
+}
+
+function inputNews(newsObj,num) {
+    let blockNews=document.createElement('div');
+    blockNews.classList.add('content-news')
+    blockNews.id=`news-${num}`;
+    let title=document.createElement('div');
+    title.classList.add('title');
+    title.innerText=newsObj.title;
+    blockNews.appendChild(title);
+
+    let content=document.createElement('div')
+    content.classList.add('news-content');
+    content.innerText=newsObj.content;
+    blockNews.appendChild(content);
+    //let allNews=document.getElementById('allNews');
+    allNews.append(blockNews);
+}
