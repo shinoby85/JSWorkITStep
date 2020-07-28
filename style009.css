@@ -110,3 +110,49 @@
 .news-content{
     font-size: 18px;
 }
+.content-5{
+    background-color: linen;
+    width: 500px;
+}
+.indate{
+    border: 1px solid #000;
+    margin-bottom: 20px;
+    padding: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.month{
+    margin-right: 30px;
+}
+.button{
+    margin-top: 10px;
+    width: 400px;
+    clear: both;
+}
+.check-day{
+    margin: 20px 0;
+}
+.calendar{
+    margin: 20px 10px;
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+    grid-template-rows: repeat(6,40px);
+    grid-gap: 5px;
+    text-align: center;
+}
+.dBlock{
+    background: lightseagreen;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 20px;
+    text-align: center;
+    justify-content: center;
+    line-height: 40px;
+
+}
+.dBlockGrey{
+    background-color: lightgrey;
+    color: #000;
+}

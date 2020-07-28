@@ -107,3 +107,17 @@ function inputNews(newsObj,num) {
     //let allNews=document.getElementById('allNews');
     allNews.append(blockNews);
 }
+/*
+    Задание 5.
+ */
+generateDate.onclick=function () {
+    let month=document.getElementById('month').value;
+    let year=document.getElementById('year').value;
+    let date=new Date(year,month);
+    alert(`getDay=${date.getDay()}, getDate=${date.getDate()}, getMonth=${date.getMonth()}, getFullYear=${date.getFullYear()}`);
+
+
+
+
+
+}
