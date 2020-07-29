@@ -124,13 +124,14 @@ generateDate.onclick = function () {
     addDate(date.getMonth(), date.getFullYear());
     //alert(`date.getDay()=${date.getDay()},date.getDate()=${date.getDate()}`);
 
-    months[1]=bigYear(date.getFullYear());
-    let prevMonth=getPrevMonth(date.getMonth());
-    if (date.getDay()!==0){
-        let prevDay=months[prevMonth]-date.getDay()+1;
-        fullDays-=addDaysToCalendar(prevDay,date.getDay(),'dBlockGrey');    }
-    fullDays-=addDaysToCalendar(1,months[Number(month-1)],'dBlock');
-    addDaysToCalendar(1,fullDays,'dBlockGrey');
+    months[1] = bigYear(date.getFullYear());
+    let prevMonth = getPrevMonth(date.getMonth());
+    if (date.getDay() !== 0) {
+        let prevDay = months[prevMonth] - date.getDay() + 1;
+        fullDays -= addDaysToCalendar(prevDay, date.getDay(), 'dBlockGrey');
+    }
+    fullDays -= addDaysToCalendar(1, months[Number(month - 1)], 'dBlock');
+    addDaysToCalendar(1, fullDays, 'dBlockGrey');
 
 }
 
@@ -170,12 +171,12 @@ function getPrevMonth(month) {
  * @param styleBlock Класс со стилями для данного числа
  * @returns {number} Количество добавленных блоков
  */
-function addDaysToCalendar(numDay,count,styleBlock) {
-    let calendar=document.getElementById('calendar');
-    for (let i=0;i<count;i++){
-        let elem=document.createElement('div');
+function addDaysToCalendar(numDay, count, styleBlock) {
+    let calendar = document.getElementById('calendar');
+    for (let i = 0; i < count; i++) {
+        let elem = document.createElement('div');
         elem.classList.add(styleBlock);
-        elem.innerText=Number(numDay)+i;
+        elem.innerText = Number(numDay) + i;
         calendar.append(elem);
     }
     return count;
@@ -186,8 +187,8 @@ function addDaysToCalendar(numDay,count,styleBlock) {
  * @param block Наименование класса
  */
 function clearDays(block) {
-    let elements=document.querySelectorAll(`.${block}`);
-    if (elements.length!==0) {
+    let elements = document.querySelectorAll(`.${block}`);
+    if (elements.length !== 0) {
         for (const item of elements) {
             item.parentNode.removeChild(item);
         }
