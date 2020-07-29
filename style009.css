@@ -1,14 +1,17 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
-.container{
+
+.container {
     margin: 20px;
 }
-.content{
+
+.content {
     margin-bottom: 20px;
 }
-.content-1{
+
+.content-1 {
     width: 400px;
     height: 7px;
     border: 17px solid lightpink;
@@ -19,17 +22,19 @@
     align-items: center;
 }
 
-.trackPoint{
+.trackPoint {
     height: 15px;
     width: 15px;
     background-color: blue;
     position: relative;
     z-index: 5;
 }
-.trackPoint:hover{
+
+.trackPoint:hover {
     cursor: pointer;
 }
-.aria{
+
+.aria {
     margin: 10px;
     border: 1px solid #000;
     width: 400px;
@@ -37,7 +42,8 @@
     position: relative;
 
 }
-.btn{
+
+.btn {
     position: absolute;
     top: 0;
     height: 100%;
@@ -52,70 +58,84 @@
     font-weight: 900;
     z-index: 20;
 }
-.btn:hover{
+
+.btn:hover {
     opacity: 1;
     cursor: pointer;
 }
-.btn-left{
+
+.btn-left {
     left: 0;
 }
-.btn-right{
+
+.btn-right {
     right: 0;
 }
-.img{
+
+.img {
     position: relative;
     z-index: -5;
     display: block;
     width: 400px;
     height: 300px;
 }
-.content-3{
+
+.content-3 {
     padding: 10px;
     background-color: lightpink;
     width: 800px;
     min-height: 20px;
 }
-.block-details{
+
+.block-details {
     width: 100%;
     min-height: 0;
     border: 1px solid #000;
 
 }
+
 .clsSummery::-webkit-details-marker {
     display: none
 }
-.clsSummery{
+
+.clsSummery {
     border: 1px solid #000;
     color: #fff;
     background-color: cornflowerblue;
     font-weight: 600;
     padding: 5px;
 }
-.text{
+
+.text {
     background-color: lightblue;
     padding: 5px;
 }
-.block-all-news{
+
+.block-all-news {
     width: 1000px;
     height: 300px;
     background-color: lightblue;
     overflow: scroll;
     padding: 10px;
 }
-.title{
+
+.title {
     margin: 20px 0;
     font-weight: 600;
     font-size: 21px;
 }
-.news-content{
+
+.news-content {
     font-size: 18px;
 }
-.content-5{
+
+.content-5 {
     background-color: linen;
     width: 500px;
     padding: 20px;
 }
-.indate{
+
+.indate {
     border: 1px solid #000;
     margin-bottom: 20px;
     padding: 15px;
@@ -124,29 +144,34 @@
     justify-content: center;
     border-radius: 10px;
 }
-.month{
+
+.month {
     margin-right: 30px;
 }
-.button{
+
+.button {
     margin-top: 10px;
     width: 400px;
     clear: both;
 }
-.check-day{
+
+.check-day {
     margin: 10px 0;
     padding: 10px;
 }
-.calendar{
+
+.calendar {
     border: 1px solid #000;
     border-radius: 10px;
     padding: 15px;
     display: grid;
-    grid-template-columns: repeat(7,1fr);
-    grid-template-rows: repeat(6,40px);
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(6, 40px);
     grid-gap: 5px;
     text-align: center;
 }
-.dBlock{
+
+.dBlock {
     background: lightseagreen;
     border-radius: 5px;
     color: #fff;
@@ -157,7 +182,8 @@
     line-height: 40px;
 
 }
-.dBlockGrey{
+
+.dBlockGrey {
     background-color: lightgrey;
     border-radius: 5px;
     color: #000;
