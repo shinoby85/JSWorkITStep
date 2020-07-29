@@ -113,14 +113,16 @@
 .content-5{
     background-color: linen;
     width: 500px;
+    padding: 20px;
 }
 .indate{
     border: 1px solid #000;
     margin-bottom: 20px;
-    padding: 5px;
+    padding: 15px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    border-radius: 10px;
 }
 .month{
     margin-right: 30px;
@@ -131,10 +133,13 @@
     clear: both;
 }
 .check-day{
-    margin: 20px 0;
+    margin: 10px 0;
+    padding: 10px;
 }
 .calendar{
-    margin: 20px 10px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    padding: 15px;
     display: grid;
     grid-template-columns: repeat(7,1fr);
     grid-template-rows: repeat(6,40px);
@@ -154,5 +159,11 @@
 }
 .dBlockGrey{
     background-color: lightgrey;
+    border-radius: 5px;
     color: #000;
+    font-weight: 600;
+    font-size: 20px;
+    text-align: center;
+    justify-content: center;
+    line-height: 40px;
 }
