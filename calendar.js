@@ -24,13 +24,13 @@ function createCalendar() {
             </div>
         </div>
         <div class="calendar" id="calendar">
-            <div class="days">Sun</div>
-            <div class="days">Mon</div>
-            <div class="days">Tue</div>
-            <div class="days">Wed</div>
-            <div class="days">Thu</div>
-            <div class="days">Fri</div>
-            <div class="days">Sut</div>
+            <div class="days">Пон</div>
+            <div class="days">Вт</div>
+            <div class="days">Ср</div>
+            <div class="days">Чет</div>
+            <div class="days">Пят</div>
+            <div class="days">Сб</div>
+            <div class="days">Вос</div>
         </div>
     </div>`;
     container.insertAdjacentHTML('afterbegin', contentHtml);
@@ -61,40 +61,40 @@ function addCalendarStyles() {
     btn.style.width = '400px'
     btn.style.clear = 'both'
 
-    let control=document.getElementById('control')
-    control.style.display='flex'
-    control.style.justifyContent='space-between'
-    control.style.alignItems='center'
+    let control = document.getElementById('control')
+    control.style.display = 'flex'
+    control.style.justifyContent = 'space-between'
+    control.style.alignItems = 'center'
 
     let chkDay = document.querySelector('.check-day')
     chkDay.style.margin = '10px 0'
     chkDay.style.padding = '10px'
 
-    let blockNav=document.getElementById('bkNav')
-    blockNav.style.width='100px'
-    blockNav.style.height='30px'
-    blockNav.style.display='none'
-    blockNav.style.justifyContent='space-around'
+    let blockNav = document.getElementById('bkNav')
+    blockNav.style.width = '100px'
+    blockNav.style.height = '30px'
+    blockNav.style.display = 'none'
+    blockNav.style.justifyContent = 'space-around'
 
-    let btnNav=document.querySelectorAll('.btnNav')
-    btnNav.forEach(item=>{
-        item.style.color='#000'
-        item.style.fontWeight='500'
-        item.style.textDecoration='none'
-        item.style.display='flex'
-        item.style.alignItems='center'
-        item.style.justifyContent='center'
-        item.style.width='30px'
-        item.style.height='30px'
-        item.addEventListener('mouseover',function () {
-            item.style.backgroundColor='lightcyan'
-            item.style.fontWeight='700'
-            item.style.outline='2px solid blueviolet'
+    let btnNav = document.querySelectorAll('.btnNav')
+    btnNav.forEach(item => {
+        item.style.color = '#000'
+        item.style.fontWeight = '500'
+        item.style.textDecoration = 'none'
+        item.style.display = 'flex'
+        item.style.alignItems = 'center'
+        item.style.justifyContent = 'center'
+        item.style.width = '30px'
+        item.style.height = '30px'
+        item.addEventListener('mouseover', function () {
+            item.style.backgroundColor = 'lightcyan'
+            item.style.fontWeight = '700'
+            item.style.outline = '2px solid blueviolet'
         })
-        item.addEventListener('mouseout',function () {
-            item.style.backgroundColor='inherit'
-            item.style.fontWeight='500'
-            item.style.outline='none'
+        item.addEventListener('mouseout', function () {
+            item.style.backgroundColor = 'inherit'
+            item.style.fontWeight = '500'
+            item.style.outline = 'none'
         })
     })
 
@@ -160,28 +160,36 @@ window.onload = function () {
  */
 function generateDate() {
     //Отображает блок навигации при первичной генерации чисел
-    let blockNav=document.getElementById('bkNav');
-    if (blockNav.style.display==='none'){
-        blockNav.style.display='flex'
+    let blockNav = document.getElementById('bkNav');
+    if (blockNav.style.display === 'none') {
+        blockNav.style.display = 'flex'
     }
     // clearDays('dBlockGrey');
     clearDays('dBlock');
     let fullDays = 42;
     let month = document.getElementById('month').value;
-    saveMonth=month;
+    saveMonth = month;
     let year = document.getElementById('year').value;
-    saveYear=year;
+    saveYear = year;
     let date = new Date(year, month - 1, 1);
-    let prevDate=new Date(year, month - 2, 1);
-    let nextDate=new Date(year, month, 1);
+    let prevDate = new Date(year, month - 2, 1);
+    let nextDate = new Date(year, month, 1);
     addDate(date.getMonth(), date.getFullYear());
     //alert(`date.getDay()=${date.getDay()},date.getDate()=${date.getDate()}`);
 
     months[1] = bigYear(date.getFullYear());
     let prevMonth = getPrevMonth(date.getMonth());
-    if (date.getDay() !== 0) {
-        let prevDay = months[prevMonth] - date.getDay() + 1;
-        fullDays -= addDaysToCalendar(prevDay, date.getDay(), 'grey', prevDate);
+    if (date.getDay() !== 1) {
+        let prevDay;
+        if (date.getDay() !== 0) {
+            prevDay = months[prevMonth] - date.getDay()+2;
+            fullDays -= addDaysToCalendar(prevDay, date.getDay()-1, 'grey', prevDate);
+        }
+        else {
+            prevDay = months[prevMonth] - 5;
+            fullDays -=addDaysToCalendar(prevDay, 6, 'grey', prevDate);
+        }
+
     }
     fullDays -= addDaysToCalendar(1, months[Number(month - 1)], 'green', date);
     addDaysToCalendar(1, fullDays, 'grey', nextDate);
@@ -204,7 +212,7 @@ function bigYear(year) {
  */
 function addDate(month, year) {
     const nameMonths = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    let checkDay=document.getElementById('checkDay')
+    let checkDay = document.getElementById('checkDay')
     checkDay.innerText = `${nameMonths[month]}, ${year}`;
     checkDay.style.fontWeight = '700';
 }
@@ -232,22 +240,22 @@ function addDaysToCalendar(numDay, count, color, date) {
     if (date.getMonth() === dateNow.getMonth() && date.getFullYear() === dateNow.getFullYear()) {
         flagDayNow = dateNow.getDate() - 1;
     }
-    styles= styleDay(color);
+    styles = styleDay(color);
     let calendar = document.getElementById('calendar');
     for (let i = 0; i < count; i++) {
         let elem = document.createElement('div');
         date.setDate(Number(numDay) + i);
-        if(date.getDay()===0 || date.getDay()===6){
-            styles= styleDay('red');
+        if (date.getDay() === 0 || date.getDay() === 6) {
+            styles = styleDay('red');
         }
         if (i === flagDayNow) {
-            styles= styleDay('blue');
+            styles = styleDay('blue');
         }
         for (const item of styles.keys()) {
             elem.style[item] = styles.get(item);
         }
-        if (i === flagDayNow || date.getDay()===0 || date.getDay()===6) {
-            styles= styleDay(color);
+        if (i === flagDayNow || date.getDay() === 0 || date.getDay() === 6) {
+            styles = styleDay(color);
         }
         elem.classList.add('dBlock');
         elem.innerText = Number(numDay) + i;
@@ -274,27 +282,27 @@ function clearDays(block) {
  * Задает обработку событий для навигационных кнопок
  */
 function setBtnNav() {
-    let btnUp=document.getElementById('btnUp')
-    let btnDown=document.getElementById('btnDown')
+    let btnUp = document.getElementById('btnUp')
+    let btnDown = document.getElementById('btnDown')
 
-    btnUp.addEventListener('click',function () {
+    btnDown.addEventListener('click', function () {
         saveMonth++;
-        if(saveMonth>12){
-            saveMonth=1
+        if (saveMonth > 12) {
+            saveMonth = 1
             saveYear++;
         }
-        month.value=saveMonth
-        year.value=saveYear
+        month.value = saveMonth
+        year.value = saveYear
         generateDate()
     })
-    btnDown.addEventListener('click',function () {
+    btnUp.addEventListener('click', function () {
         saveMonth--;
-        if(saveMonth<1){
-            saveMonth=12
+        if (saveMonth < 1) {
+            saveMonth = 12
             saveYear--;
         }
-        month.value=saveMonth
-        year.value=saveYear
+        month.value = saveMonth
+        year.value = saveYear
         generateDate()
     })
 }
